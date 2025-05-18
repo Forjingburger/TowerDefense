@@ -10,12 +10,14 @@ public class Enemy : MonoBehaviour
     private Transform[] wayPoints; //웨이포인트를 관리하는 배열
     private int currentIndex; //현재 웨이포인트의 인덱스
     private Movement movement; //방향을 지정해야 하기 떄문에
+    private Rigidbody2D rigidbody;
+
+    float timer;
 
     public void Setup(Transform[] way)
-    {
-        Debug.Log("셋업 호출");
-
+    { 
         movement = GetComponent<Movement>();
+        rigidbody = GetComponent<Rigidbody2D>();
 
         //적의 경로 설정
         wayPointCount = way.Length;
@@ -28,18 +30,31 @@ public class Enemy : MonoBehaviour
         StartCoroutine(Move());
     }
 
+    void SetDistance()
+    {
+        float distance = Vector2.Distance(wayPoints[currentIndex].position, wayPoints[currentIndex + 1].position);
+        timer = distance / 1;
+    }
+
     //이동 코우틴
     private IEnumerator Move()
     {
         //방향을 설정한다
+        SetDistance();
         SetDirection();
 
         while (true)
         {
+            //거속시 이용해서 풀기
+            timer -= Time.deltaTime;
+
+            Debug.Log(timer);   
             //다음 웨이포인트에 도착하였다면
-            if(transform.position == wayPoints[currentIndex].position)
+            if(timer <= 0)
             {
+                Debug.Log("새 디렉션 설정");
                 //새 방향 설정
+                SetDistance();
                 SetDirection();
             }
             yield return null;

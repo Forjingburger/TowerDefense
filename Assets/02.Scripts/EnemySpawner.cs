@@ -4,36 +4,26 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    //한마리 씩 적 생성 후 셋업까지 (1초 간격)
-
-    [SerializeField] GameObject enemyPrefab;
-    [SerializeField] Transform[] wayPoints;
-    private Enemy enemy;
-
-    private void Awake()
-    {
-        enemy = GetComponent<Enemy>();
-    }
+    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private Transform[] wayPoints;
 
     private void Start()
     {
-        //for(int i = 0; i <= wayPoints.Length; i++)
-        //{
-        //    Debug.Log(wayPoints[i]);
-        //}
-
         StartCoroutine(SpawnEnemy());
     }
 
     private IEnumerator SpawnEnemy()
     {
-        while(true)
+        GameObject enemyObject;
+        Enemy enemy;
+
+        while (true)
         {
-            Instantiate(enemyPrefab);
+            enemyObject = Instantiate(enemyPrefab);
+            enemy = enemyObject.GetComponent<Enemy>();
             enemy.Setup(wayPoints);
 
             yield return new WaitForSeconds(1f);
         }
-        yield return null;
     }
 }

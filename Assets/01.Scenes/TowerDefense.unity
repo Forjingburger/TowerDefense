@@ -634,7 +634,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 866295995}
-  - component: {fileID: 866295994}
+  - component: {fileID: 866295996}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -642,34 +642,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &866295994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 866295993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72d5ced08dfea3e4786d7b9bb33d266f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 5073290480285919540, guid: 65bb7694f81884446b8795bd5c2008d0, type: 3}
-  wayPoints:
-  - {fileID: 1808682566}
-  - {fileID: 1414627716}
-  - {fileID: 8575012}
-  - {fileID: 863257562}
-  - {fileID: 1380822442}
-  - {fileID: 1374732031}
-  - {fileID: 780380381}
-  - {fileID: 24904854}
-  - {fileID: 562321231}
-  - {fileID: 1689483246}
-  - {fileID: 179616907}
-  - {fileID: 958611317}
-  - {fileID: 1237423740}
-  - {fileID: 1668395795}
 --- !u!4 &866295995
 Transform:
   m_ObjectHideFlags: 0
@@ -685,6 +657,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &866295996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866295993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d5ced08dfea3e4786d7b9bb33d266f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 5073290480285919540, guid: 65bb7694f81884446b8795bd5c2008d0, type: 3}
+  enemyObject: {fileID: 0}
+  wayPoints:
+  - {fileID: 1808682566}
+  - {fileID: 1414627716}
+  - {fileID: 8575012}
+  - {fileID: 863257562}
+  - {fileID: 1380822442}
+  - {fileID: 1374732031}
+  - {fileID: 780380381}
+  - {fileID: 24904854}
+  - {fileID: 562321231}
+  - {fileID: 1689483246}
+  - {fileID: 179616907}
+  - {fileID: 958611317}
+  - {fileID: 1237423740}
+  - {fileID: 1668395795}
 --- !u!1001 &958611316
 PrefabInstance:
   m_ObjectHideFlags: 0
