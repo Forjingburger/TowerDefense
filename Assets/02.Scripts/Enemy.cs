@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     float timer;
 
     public void Setup(Transform[] way)
-    { 
+    {
         movement = GetComponent<Movement>();
         rigidbody = GetComponent<Rigidbody2D>();
 
@@ -30,31 +30,22 @@ public class Enemy : MonoBehaviour
         StartCoroutine(Move());
     }
 
-    void SetDistance()
-    {
-        float distance = Vector2.Distance(wayPoints[currentIndex].position, wayPoints[currentIndex + 1].position);
-        timer = distance / 1;
-    }
-
     //이동 코우틴
     private IEnumerator Move()
     {
-        //방향을 설정한다
-        SetDistance();
+        //방향을 설정한다.
         SetDirection();
 
         while (true)
         {
             //거속시 이용해서 풀기
             timer -= Time.deltaTime;
-
-            Debug.Log(timer);   
+            
             //다음 웨이포인트에 도착하였다면
             if(timer <= 0)
             {
-                Debug.Log("새 디렉션 설정");
+                //Debug.Log("새 디렉션 설정");
                 //새 방향 설정
-                SetDistance();
                 SetDirection();
             }
             yield return null;
@@ -65,13 +56,16 @@ public class Enemy : MonoBehaviour
     private void SetDirection()
     {
         //아직 이동할 수 있는 웨이포인트가 남아있다면
-        if(currentIndex < wayPointCount - 1)
+        if (currentIndex < wayPointCount - 1)
         {
-            currentIndex++;
+            float distance = Vector2.Distance(transform.position, wayPoints[currentIndex + 1].position);
+            timer = distance / movement.MoveSpeed;
+
             //다음 웨이 포인트로 향하는 방향 구해서
             //목표지점을 향하는 벡터 : 목표지점 - 현재위치
-            Vector2 direction = (wayPoints[currentIndex].position - transform.position).normalized;
+            Vector2 direction = (wayPoints[currentIndex + 1].position - transform.position).normalized;
 
+            currentIndex++;
             //무브먼트에 방향 전달
             movement.MoveDirection = direction;
         }

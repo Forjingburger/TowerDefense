@@ -6,6 +6,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private Transform[] wayPoints;
+    [SerializeField] private GameObject enemyGroup;
 
     private void Start()
     {
@@ -19,7 +20,7 @@ public class EnemySpawner : MonoBehaviour
 
         while (true)
         {
-            enemyObject = Instantiate(enemyPrefab);
+            enemyObject = Instantiate(enemyPrefab, enemyGroup.transform);
             enemy = enemyObject.GetComponent<Enemy>();
             enemy.Setup(wayPoints);
 
