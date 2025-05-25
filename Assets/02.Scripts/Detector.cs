@@ -12,6 +12,7 @@ public class Detector : MonoBehaviour
     private void Start()
     {
         towerbuilder = GetComponent<TowerBuilder>();
+        
     }
 
     private void Update()
@@ -30,6 +31,7 @@ public class Detector : MonoBehaviour
                     Debug.DrawLine(Camera.main.transform.position, hit.point, Color.red, 3f);
 
                     towerbuilder.TowerBuild(hit.transform.position);
+
                 }
             }
         }
