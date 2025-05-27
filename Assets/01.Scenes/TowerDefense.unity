@@ -751,34 +751,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9e93db994fa8f448da84228ae1ba05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &290671966
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 290671964}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &290671967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 290671964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21181f1a02fa54647b057f612e6caf40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  towerObj: {fileID: 386811597984425897, guid: 9a9e858e93f5b4c4b848d5dd1ac36b82, type: 3}
   tileGroup:
   - {fileID: 200105066}
   - {fileID: 494939604}
@@ -829,6 +801,34 @@ MonoBehaviour:
   - {fileID: 219471640}
   - {fileID: 2078328862}
   - {fileID: 114732088}
+--- !u!4 &290671966
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290671964}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &290671967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290671964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21181f1a02fa54647b057f612e6caf40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerObj: {fileID: 386811597984425897, guid: 9a9e858e93f5b4c4b848d5dd1ac36b82, type: 3}
 --- !u!1001 &293570060
 PrefabInstance:
   m_ObjectHideFlags: 0

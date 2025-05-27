@@ -9,7 +9,7 @@ public class TileGround : MonoBehaviour
 
     public void DetectTower()
     {
-        isBuildedPlace = true;
+        isBuildedPlace = true;  
     }
 }
 

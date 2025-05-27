@@ -7,31 +7,25 @@ public class TowerBuilder : MonoBehaviour
     //타워 건설 함수를 만들고, Detector에서 건설 함수 호출하여 타워 설치
 
     [SerializeField] private GameObject towerObj;
-    [SerializeField] private List<GameObject> tileGroup = new List<GameObject>();
-    TileGround tileGround;
+    private Detector detector;
 
-    public List<GameObject> TileGroup {  get { return tileGroup; } }
-
-
-    public void TowerBuild(Vector3 buildPos)
+    private void Start()
     {
-        for(int i = 0; i < tileGroup.Count; i++)
+        detector = GetComponent<Detector>();
+    }
+
+    public void TowerBuild(Vector3 buildPos, TileGround clickedPlace)
+    {
+        if (!clickedPlace.IsBuildedPlace)
         {
-            Debug.Log(i);
-            tileGround = tileGroup[i].GetComponent<TileGround>();
-
-            //if(tileGroup[i].transform.position == buildPos)
-            //{
-            //    Instantiate(towerObj, buildPos, Quaternion.identity);
-            //}
+            Instantiate(towerObj, buildPos, Quaternion.identity);
+            clickedPlace.DetectTower();
         }
-
-        
-
-        //if (!tileGround.IsBuildedPlace)
-        //{
-        //    Instantiate(towerObj, buildPos, Quaternion.identity);
-        //    tileGround.DetectTower();
-        //}
+        else
+        {
+            return;
+        }
     }
 }
+
+ 
