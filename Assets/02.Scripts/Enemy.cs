@@ -10,14 +10,15 @@ public class Enemy : MonoBehaviour
     private Transform[] wayPoints; //웨이포인트를 관리하는 배열
     private int currentIndex; //현재 웨이포인트의 인덱스
     private Movement movement; //방향을 지정해야 하기 떄문에
-    private Rigidbody2D rigidbody;
 
     float timer;
 
-    public void Setup(Transform[] way)
+    private EnemySpawner enemySpawner;
+
+    public void Setup(Transform[] way, EnemySpawner spawner)
     {
         movement = GetComponent<Movement>();
-        rigidbody = GetComponent<Rigidbody2D>();
+        enemySpawner = spawner;
 
         //적의 경로 설정
         wayPointCount = way.Length;
@@ -71,7 +72,7 @@ public class Enemy : MonoBehaviour
         }
         else //끝에 도달한다면
         {
-            Destroy(gameObject);
+            enemySpawner.EnemyDestory(this);
         }
     }
     //벡터는 방향과 크기를 모두 가지고 있다
