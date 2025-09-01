@@ -23,9 +23,11 @@ public class Tower : MonoBehaviour
     private EnemySpawner enemySpawner;
     private WaitForSeconds speed;
 
+    [SerializeField] private float damage;
+
     public void Setup(EnemySpawner spawner)
     {
-        Debug.Log("타워 셋업 완료");
+        //Debug.Log("타워 셋업 완료");
         speed = new WaitForSeconds(attackSpeed);
         enemySpawner = spawner;
 
@@ -42,7 +44,7 @@ public class Tower : MonoBehaviour
     //탐색 상태
     private IEnumerator Search()
     {
-        Debug.Log("타워 상태 : Search");
+        //Debug.Log("타워 상태 : Search");
         while(true)
         {
             float nearest = float.MaxValue;
@@ -54,7 +56,7 @@ public class Tower : MonoBehaviour
 
                 if (nearest >= distance && attackRange >= distance)
                 {
-                    Debug.Log("타겟 설정 완료");
+                    //Debug.Log("타겟 설정 완료");
                     nearest = distance;
                     target = enemySpawner.EnemyList[i].transform;
                 }
@@ -69,7 +71,7 @@ public class Tower : MonoBehaviour
 
     private IEnumerator Attack()
     {
-        Debug.Log("타워 상태 : Attack");
+        //Debug.Log("타워 상태 : Attack");
         while(true)
         {
             if(target == null)
@@ -100,7 +102,7 @@ public class Tower : MonoBehaviour
         projectile = projectileObj.GetComponent<Projectile>();
         if(target != null)
         {
-            projectile.Setup(target.transform);
+            projectile.Setup(target.transform, damage);
         }
     }
 

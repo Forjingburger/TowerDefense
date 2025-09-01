@@ -103,6 +103,7 @@ MonoBehaviour:
   attackSpeed: 0.5
   attackRange: 2
   towerState: 0
+  damage: 1
 --- !u!1 &6213740229912959000
 GameObject:
   m_ObjectHideFlags: 0

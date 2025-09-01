@@ -4,6 +4,12 @@ using UnityEngine;
 
 //문제 해결을 위한 코드 : 알고리즘
 
+public enum EnemyDeadType
+{
+    Dead,
+    Finish
+}
+
 public class Enemy : MonoBehaviour
 {
     private int wayPointCount; //웨이포인트의 개수
@@ -72,9 +78,14 @@ public class Enemy : MonoBehaviour
         }
         else //끝에 도달한다면
         {
-            enemySpawner.EnemyDestory(this);
+            DestroyEnemy(EnemyDeadType.Finish);
         }
     }
     //벡터는 방향과 크기를 모두 가지고 있다
     //벡터의 정규화 : 크기가 1인 벡터로 만들어서 방향만을 가르키도록 한다.
+
+    public void DestroyEnemy(EnemyDeadType type)
+    {
+        enemySpawner.EnemyDestory(this, type);
+    }
 }
